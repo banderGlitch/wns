@@ -1,5 +1,24 @@
 import React, { useState } from 'react';
+import { useAccount , useChainId} from 'wagmi';
+
+
+// const CheckForm = () => {
+//     const { isConnected, address } = useAccount();
+//     const chainId = useChainId();
+//     console.log("address------------------->", address);
+//     console.log("chainId------------------->", chainId);
+//     console.log("isConnected------------------->", isConnected);
+//     return (
+//         <div>
+//             <h1>Check Form</h1>
+//         </div>
+//     );
+// };
+
+// export default CheckForm;
+
 import logo from "../assets/logo.jpg"
+
 
 // Simulated wallet address to account name mapping
 const addressToNameMapping = {
@@ -16,11 +35,11 @@ const statusColors = {
 };
 
 // CheckForm Component
-const CheckForm = ({ accountName, setAccountName, walletAddress, setWalletAddress, walletStatus, setWalletStatus }) => {
+const CheckForm = () => {
     
     const [walletAddress, setWalletAddress] = useState('');
     const [walletStatus, setWalletStatus] = useState('');
-    const [accountName, setAccountName] = useState('');
+    const [accountName, setAccountName] = useState('Not Found');
     const [activeNav, setActiveNav] = useState('Check'); // Track active menu item
     const handleInputChange = (e) => {
         const input = e.target.value;
@@ -65,4 +84,4 @@ const CheckForm = ({ accountName, setAccountName, walletAddress, setWalletAddres
     );
 };
 
-module.exports = CheckForm
+export default CheckForm;
